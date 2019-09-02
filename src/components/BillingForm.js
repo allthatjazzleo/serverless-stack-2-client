@@ -25,15 +25,15 @@ class BillingForm extends Component {
   }
 
   handleFieldChange = event => {
-    console.log(event.target);
+    // console.log(event.target);
     this.setState({
       [event.target.id]: event.target.value
     });
   }
 
   handleCardFieldChange = event => {
-    console.log(event);
-    console.log(event.complete);
+    // console.log(event);
+    // console.log(event.complete);
     this.setState({
       isCardComplete: event.complete
     });
