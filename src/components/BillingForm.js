@@ -25,6 +25,7 @@ class BillingForm extends Component {
   }
 
   handleFieldChange = event => {
+    console.log(event.target);
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -48,7 +49,7 @@ class BillingForm extends Component {
     const { token, error } = await this.props.stripe.createToken({ name });
 
     this.setState({ isProcessing: false });
-
+    console.log(this.props);
     this.props.onSubmit(this.state.storage, { token, error });
   }
 
