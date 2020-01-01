@@ -3,6 +3,7 @@ import { API } from "aws-amplify";
 import { Link } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { GoogleReCaptchaProvider, GoogleReCaptcha } from 'react-google-recaptcha-v3';
 import "./Home.css";
 
 export default class Home extends Component {
@@ -89,9 +90,12 @@ export default class Home extends Component {
 
   render() {
     return (
+      <GoogleReCaptchaProvider reCaptchaKey="6LfCb8sUAAAAAJ7lvfsj14qT8r2ESzrkPkxy6bQH">
+      <GoogleReCaptcha onVerify={token => console.log(token)} />
       <div className="Home">
         {this.props.isAuthenticated ? this.renderNotes() : this.renderLander()}
       </div>
+      </GoogleReCaptchaProvider>
     );
   }
 }
